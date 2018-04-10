@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Eshop" x:Class="Eshop.E_shopPage">
+<ContentPage.Content>
+        <Grid HeightRequest="140">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+                
+            <Grid.RowDefinitions>
+                <RowDefinition Height="110"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                    
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Label Text="Zbozi" Grid.Row="0" FontSize="39" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" />
+                <Button Clicked="kosik" Text="Košík" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" />
+                <Button Clicked="user" Text="My" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="End" />
+
+            </Grid>
+
+            
+            <ListView x:Name="ZboziList" Grid.Row="1" ItemTapped="SelectedItemMethod" IsGroupingEnabled="false">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding id}" FontAttributes="Bold" Grid.Row="0" FontSize="11" Grid.Column="0" />
+                                    <Label Text="{Binding nazev}" Grid.Row="1"  Grid.Column="0" FontSize="11" />
+                                    <Label Text="{Binding cena}"  Grid.Row="1" Grid.Column="1" FontSize="11" Grid.ColumnSpan="2" />
+
+                            </Grid>                  
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
