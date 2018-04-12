@@ -26,18 +26,19 @@ namespace Eshop
             //vytvoření var s info o uživately
             Item derp = e.Item as Item;
             //otevře novou stranku
-            await Navigation.PushModalAsync(new Detail(derp));
+            await Navigation.PushAsync(new Detail(derp));
         }
 
         public void kosik(object sender, EventArgs args)
         {
-            Navigation.PushModalAsync(new Cart());
+
+            Navigation.PushAsync(new Cart());
 
         }
 
         public void user(object sender, EventArgs args)
         {
-            Navigation.PushModalAsync(new My());
+            Navigation.PushAsync(new My());
 
         }
 

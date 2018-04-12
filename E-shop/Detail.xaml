@@ -10,16 +10,17 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <Label Text="Detail" Grid.Row="0" FontSize="39" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" />
 
-            <Label Text="id" x:Name="id" FontAttributes="Bold" Grid.Row="0"   HorizontalOptions="Center" VerticalOptions="Center"/>
-            <Label Text="nazev" x:Name="nazev" Grid.Row="1"  HorizontalOptions="Center" VerticalOptions="Center"/>
-            <Label Text="cena" x:Name="cena" Grid.Row="2"   HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label Text="id" x:Name="id" FontAttributes="Bold" Grid.Row="1"   HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label Text="nazev" x:Name="nazev" Grid.Row="2"  HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label Text="cena" x:Name="cena" Grid.Row="3"   HorizontalOptions="Center" VerticalOptions="Center"/>
 
-            <Button Clicked="ad" Text="přidat" Grid.Row="3" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Button Clicked="dl" Text="odebrat" Grid.Row="4"  HorizontalOptions="Center" VerticalOptions="Center" />
+            <Button Clicked="ad" Text="přidat" Grid.Row="4" HorizontalOptions="Center" VerticalOptions="Center" />
+            <Button Clicked="dl" Text="odebrat" Grid.Row="5"  HorizontalOptions="Center" VerticalOptions="Center" />
         </Grid>
     </ContentPage.Content>
 

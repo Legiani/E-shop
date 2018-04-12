@@ -6,7 +6,7 @@
 
 
 	// Spojení s databazí
-	$mysqli = new mysqli('127.0.0.1', 'NAME', 'PASSWORD', 'NAME', 0,'/var/run/mysqld/mysqld.sock');
+	$mysqli = new mysqli('127.0.0.1', 'bednaja14', 'Magic007', 'bednaja14', 0,'/var/run/mysqld/mysqld.sock');
 
 	// Co se bude dít
 	$action = isset( $_GET['action'] ) ? $_GET['action'] : "";
@@ -31,7 +31,7 @@
 		break;
 
 		case 'add':
-			add($mysqli, $get_id,$get_jmeno);
+			add($mysqli, $get_id, $get_jmeno);
 		break;
 
 		case 'cart':
@@ -96,8 +96,10 @@
  		//Přidání položky do obednávky když existuje nebo jí vytvoří novou obednávku a pak jí uloží
  			//?action=add&id="11"&jmeno="6" 11=id zboží 6=id uživatele
  			//vrací OK
-		function add($mysqli, $get_id,$get_jmeno) {
- 			$obednavka = get_id_obednavka($get_jmeno);
+		function add($mysqli, $get_id, $get_jmeno) {
+
+ 			$obednavka = get_id_obednavka($mysqli, $get_jmeno);
+
  			$vysledek = $mysqli->query("SELECT * FROM `obednavka` WHERE `id_obednavky` = \"".$obednavka."\" and `id_zbozi` = \"".$get_id."\"");
 			$r = mysqli_fetch_assoc($vysledek);
 			if ($r != null){
@@ -105,9 +107,9 @@
 				$mnoz = $r['mnozstvi']+1;
 				$sql = "UPDATE `obednavka` SET `mnozstvi`=".$mnoz." WHERE `id`=".$r['id'];
 				$mysqli->query($sql);
-				print("OK");
+				print("UPDATE");
 			}else{
-				
+				echo "INSERT INTO `obednavka` (`id_obednavky`, `id_zbozi`, `mnozstvi`) VALUES (".$obednavka.", ".$get_id.",1)";
 				$mysqli->query("INSERT INTO `obednavka` (`id_obednavky`, `id_zbozi`, `mnozstvi`) VALUES (".$obednavka.", ".$get_id.",1)");
 				print("OK");
 			}

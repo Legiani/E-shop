@@ -22,7 +22,7 @@
                 </Grid.RowDefinitions>
 
                 <Label Text="Košík" Grid.Row="0" Grid.Column="0" x:Name="id" FontSize="39" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
-                <Button Clicked="buy" Text="Vypiš" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+                <Button Clicked="buy" Text="Koupit" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
             </Grid>
 
             

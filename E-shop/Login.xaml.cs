@@ -12,11 +12,24 @@ namespace Eshop
         public Login()
         {
             InitializeComponent();
+            
         }
 
-        public async void logAsync(object sender, EventArgs args)
+        public void logAsync(object sender, EventArgs args)
         {
-            Task<HttpResponseMessage> secndJson = GetTheGoodStuff("?action=login&jmeno=" + jmeno.Text + "&heslo=" + heslo.Text);
+            log();
+        }
+
+        public void log(){
+            string jmeno;
+            string heslo;
+
+
+            jmeno = xjmeno.Text;
+            heslo = xheslo.Text;
+
+
+            Task<HttpResponseMessage> secndJson = GetTheGoodStuff("?action=login&jmeno=" + jmeno + "&heslo=" + heslo);
             var code = secndJson.Result.EnsureSuccessStatusCode().StatusCode;
             System.Diagnostics.Debug.WriteLine(code);
             if (code.ToString() != "OK")
@@ -36,11 +49,13 @@ namespace Eshop
                 else
                 {
                     App.person = JsonConvert.DeserializeObject<Person>(json);
-                    await Navigation.PushModalAsync(new E_shopPage());
+                    Application.Current.Properties["jmeno"] = App.person.jmeno;
+                    Application.Current.Properties["heslo"] = App.person.heslo;
+
+                    Application.Current.MainPage = new NavigationPage(new E_shopPage());
                 }
 
             }
-
         }
 
         public void reset(object sender, EventArgs args)

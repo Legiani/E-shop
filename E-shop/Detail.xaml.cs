@@ -22,8 +22,8 @@ namespace Eshop
 
         public void ad(object sender, EventArgs args)
         {
-
-            Task<HttpResponseMessage> secndJson = GetTheGoodStuff("?action=add&id ="+id.Text+"&jmeno="+App.person.id);
+            System.Diagnostics.Debug.WriteLine("?action=add&id=" + id.Text + "&jmeno=" + App.person.id);
+            Task<HttpResponseMessage> secndJson = GetTheGoodStuff("?action=add&id="+id.Text+"&jmeno="+App.person.id);
             var code = secndJson.Result.EnsureSuccessStatusCode().StatusCode;
             if (code.ToString() != "OK")
             {
@@ -41,8 +41,9 @@ namespace Eshop
                 }
                 else
                 {
-                    DisplayAlert("Alert", "Přidáno ", "OK");
                     Navigation.PopModalAsync();
+                    DisplayAlert("Alert", "Přidáno ", "OK");
+
                 }
             }
         }

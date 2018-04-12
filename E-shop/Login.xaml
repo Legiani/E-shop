@@ -17,10 +17,10 @@
                 <Label Text="E-Shop" Grid.Row="0" FontSize="39" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" />
 
                 <Label Text="Jméno:" Grid.Row="1" Margin="10" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                <Entry Placeholder="Santa" Grid.Row="2" x:Name="jmeno" Margin="0, 10, 0, 10" />
+                <Entry Placeholder="Santa" Grid.Row="2" x:Name="xjmeno" Margin="0, 10, 0, 10" />
 
                 <Label Text="Heslo:" Grid.Row="3" Margin="10" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                <Entry Placeholder="Kraus" Grid.Row="4" x:Name="heslo" Margin="0, 10, 0, 10" />
+                <Entry Placeholder="Kraus" Grid.Row="4" x:Name="xheslo" Margin="0, 10, 0, 10" />
 
                 <Button Clicked="logAsync" Text="Login" Grid.Row="5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
                 <Button Clicked="reset" Text="Zapomenute heslo" Grid.Row="6" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
